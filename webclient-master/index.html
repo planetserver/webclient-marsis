@@ -1,0 +1,424 @@
+<!DOCTYPE html> 
+<html> 
+    <head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+		<title>Planet Server</title>
+		<link rel="Shortcut Icon" href="favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" type="text/css" href="default.css" />
+		<!-- jQuery -->
+		<!--<script src='js/jQuery/jquery-1.6.2.min.js' type='text/javascript'></script>
+		<script src='js/jQuery/jquery-ui-1.8.16.custom.min.js' type='text/javascript'></script>-->
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<!-- X3D -->
+<!--		<script type="text/javascript" src="js/x3d/x3dom-full.js"></script> -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script> 
+<!--		<script src="js/x3d/ChunkCounter.js" type="text/javascript"></script> 
+		<script src="js/x3d/Chunk.js" type="text/javascript"></script> 
+		<script src="js/x3d/Terrain.js" type="text/javascript"></script>
+		<script src="js/x3d/ServerRequest.js" type="text/javascript"></script>
+		<script src="js/x3d/SceneManager.js" type="text/javascript"></script>
+		<script src="js/x3d/Main.js" type="text/javascript"></script>  -->
+		<!-- jQplot --->
+<!--		<script src='js/jQuery/jquery.jqplot.min.js' type='text/javascript'></script>
+		<link rel='stylesheet' type='text/css' href='js/jQuery/jquery.jqplot.css' />
+		<script src='js/jQuery/jqplot.cursor.min.js' type='text/javascript'></script>
+		<script src='js/jQuery/jqplot.barRenderer.min.js' type='text/javascript'></script>
+		<script src='js/jQuery/jqplot.categoryAxisRenderer.min.js' type='text/javascript'></script> -->
+		<!-- Openlayers -->
+		<script src='js/OpenLayers/OpenLayers.2.13.js' type='text/javascript'></script>
+		<link rel='stylesheet' type='text/css' href='js/OpenLayers/style.css' />
+        <!-- Proj4JS -->
+<!--       <script type="text/javascript" src="js/proj4js/lib/proj4js-compressed.js"></script> -->
+        <!-- Global variable declaration -->
+		<script src='globalvar.js' type='text/javascript'></script>
+<!--		<script src='inrasdaman.js' type='text/javascript'></script> -->
+		<!--Downloadify-->
+<!--		<script type="text/javascript" src="js/swfobject.js"></script>
+		<script type="text/javascript" src="js/downloadify.min.js"></script>
+        <script src='downloadify.js' type='text/javascript'></script> -->
+		<!--Load first-->
+		<script src='loader.js' type='text/javascript'></script>
+		<script src='function.js' type='text/javascript'></script>
+<!--		<script src='toggle.js' type='text/javascript'></script> -->
+		<!--Console-->
+<!--		<script type="text/javascript" src="js/jquery.console.js"></script> -->
+		<!--Main Javascript-->
+        <script src='gui.js' type='text/javascript'></script>
+		<script src='planetmap.js' type='text/javascript'></script>
+		<script src='planetmap.events.js' type='text/javascript'></script>
+<!--        <script src='diagram.js' type='text/javascript'></script>  -->
+        <script src='wcpsconsole.js' type='text/javascript'></script>  
+<!--		<script src='toc.js' type='text/javascript'></script> -->
+<!--		<script src='metadata.js' type='text/javascript'></script> -->
+<!--		<script src='summaryproducts.js' type='text/javascript'></script> -->
+<!--		<script src='loadregion.js' type='text/javascript'></script> -->
+<!--		<script src='loadhs.js' type='text/javascript'></script>  -->
+<!--		<script src='urlquery.js' type='text/javascript'></script> -->
+		<script src='main.js' type='text/javascript'></script>
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-42984080-1', 'planetserver.eu');
+        ga('send', 'pageview');
+
+        </script>
+	</head>
+	<body>
+
+
+</div> 
+<div id="container">
+	<div id="image_bar">
+		<img src="../assets/images/logos/vector-logo-earthserver_with-text_RGB_70px-high.png">
+			<img src="../assets/images/logos/jacobs_70px-high_logo.png">
+			<img src="../assets/images/mars70.png">
+			<img src="../assets/images/ess-logo_v1.2_70px.png">
+
+	</div>
+
+
+		<div id="nav-menu"></div>
+<div id="menu">
+<nav>
+	<ul>
+		<li><a href="/index.php?content=home.php">Home</a></li>
+	
+		<li><a href="/index.php?content=textgui.php">Text GUI</a></li>
+ 		<li><a href="#">2D GUI</a>
+<!--		</li>
+ 		<li><a href="#">3D GUI</a>
+			<ul>
+				<li><a href="#">Coming soon</a></li>
+			</ul> 
+		</li> -->
+
+		<li><a href="/index.php?content=about.php">About</a></li>
+</ul>
+</nav>
+</div>
+
+
+		<div id="map"></div> 
+		<div id="panel-wrapper">
+            <li><a href="http://www.earthserver.eu" target="_new"><img src="images/1x1.gif" width=40 height=40 border=0></a></li>
+            <!--<li><input type="button" name="hrscload" id="hrscload" value="Load HRSC+DTM" /></li>
+            <li><input type="button" name="crismload" id="crismload" value="Load CRISM" /></li>-->
+            
+            
+			<li><div id="panel" class="olControlPanel"></div></li>
+			<li><div id="panel2" class="olControlPanel"></div></li>
+			<li><div id="panel3" class="olControlPanel"></div></li>
+		</div>
+		<div id="loader" style="//display:none">
+			<img src="images/ajax-loader.gif" />		
+		</div>
+		<div id="about" style="display:none">
+			<div id="title-wrapper">
+				<div id="title">ABOUT</div>
+			</div>
+			<div id="close-wrapper">
+				<a href="javascript:void(0)" onclick="toggleDisplay('about')">X</a>
+			</div></br></br>
+			<div id="about-text">
+			</div>
+			<div id="wrapper1">
+			    <ul class="tabs1">
+				   <li class="first"><a href="javascript:void(0)" class="defaulttab1" rel="tabs11">PlanetServer</a></li>
+				   <li><a href="javascript:void(0)" rel="tabs12">Developers</a></li>
+				   <li><a href="javascript:void(0)" rel="tabs13">Software</a></li>
+				   <li><a href="javascript:void(0)" rel="tabs14">Data</a></li>
+			    </ul>		 
+			    <div class="tab-content1" id="tabs11"><div id="planetServer"><br><a href="http://blog.planetserver.eu/?page_id=2" target="_new" style="color: black;font-size: 20px;">blog.planetserver.eu</a></div></div>
+			    <div class="tab-content1" id="tabs12"><div id="developers">TBA</div></div>
+			    <div class="tab-content1" id="tabs13"><div id="software">TBA</div></div>
+			    <div class="tab-content1" id="tabs14"><div id="data">TBA</div></div>
+			</div>
+		</div>
+
+		<!--<div id="vnirorir" style="display:none">
+			<div id="title-wrapper">
+				<div id="title">CHOOSE CRISM TYPE</div>
+			</div>
+			<div id="close-wrapper">
+				<a href="javascript:void(0)" onclick="toggleDisplay('vnirorir')">X</a>
+			</div></br></br>
+			<div id="vnirorir-text">
+		        <a href="javascript:void(0)" style="float:left;left:5px;">VNIR: <input type="radio" name="vnirorircheck" id="vnircheck" /></a>
+		        <a href="javascript:void(0)" style="float:right;right:5px;">IR: <input type="radio" name="vnirorircheck" id="ircheck" checked="yes"/></a>
+		        <input type="button" name="vnirorirselect" id="vnirorirselect" value="OK" />
+            </div>
+		</div>-->
+		<div id="tutorial" style="display:none">
+			<div id="title-wrapper">
+				<div id="title">TUTORIAL</div>
+			</div>
+			<div id="close-wrapper">
+				<a href="javascript:void(0)" onclick="toggleDisplay('tutorial')">X</a>
+			</div></br></br>
+			<div id="tutorial-text"><embed type="application/pdf" src="tutorial/tutorial.pdf" width=100% height=100%>
+			</div>
+		</div>
+		<div id="toc" style="display:none">
+			<div id="title-wrapper">
+				<div id="title">TABLE OF CONTENTS</div>
+			</div>
+			<div id="close-wrapper">
+				<a href="javascript:void(0)" onclick="toggleDisplay('toc')">X</a>
+			</div></br></br>
+			<div id="layerswitcher"></div>
+			<div id="dimensions"></br></div>
+		</div>
+		<div id="spectra" style="display:none">
+			<div id="title-wrapper">
+				<div id="title">DIAGRAMS</div>
+			</div>
+			<div id="close-wrapper">
+				<a href="javascript:void(0)" onclick="toggleDisplay('spectra')">X</a>
+			</div></br>
+			<div id="wrapper">
+				<button id="toggler2" onclick="toggle2(this);return false;">ZOOM</button>
+				<span id="spectrum_download">You must have Flash 10 installed to download this file.</span>
+			    <ul class="tabs">
+				   <li class="first"><a href="javascript:void(0)" class="defaulttab" rel="tabs1">Spectrum</a></li>
+				   <li><a href="javascript:void(0)" class="histtab" rel="tabs2">Histogram</a></li>
+				   <li><a href="javascript:void(0)" class="crosstab" rel="tabs3">Cross Section</a></li>
+			    </ul>
+			    <div class="tab-content" id="tabs1">
+			    	<div id="chartPlace">
+			    	</div>
+			    	<select name="spectrallibrary" id="spectrallibrary" size=1>
+			 	   		<option value="selectlibrary">Select Library</option>
+                        <option value="all_sulfates_resamp">All sulfates</option>
+                        <option value="carbonate">Carbonates</option>
+                        <option value="inosil">Inosilicates</option>
+                        <option value="meteor">Meteor</option>
+                        <option value="moon">Moon</option>
+                        <option value="nesosil">Nesosilicates</option>
+                        <option value="nitrates">Nitrates</option>
+                        <option value="oxide">Oxides</option>
+                        <option value="phosphate">Phosphates</option>
+                        <option value="phylosil">Phyllosilicates</option>
+                        <option value="rocks">Rocks</option>
+                        <option value="RT_resamp">Rio Tinto materials measured in RELAB</option>
+                        <option value="sorosil">Sorosilicates</option>
+                        <option value="sulfate">Sulfates</option>
+                        <option value="synth">Synth</option>
+                        <option value="tectosil">Tectosilicates</option>
+                        <option value="unconsolidated">Unconsolidated</option>
+			 	   	</select>
+			    	<input type="button" name="loadlibrary" id="loadlibrary" value="Load"></input>
+			    	<span id="afterload"></div>
+			    </div>
+			    <div class="tab-content" id="tabs2">
+			    	<div id="histPlace">
+			    	</div>
+			    	<select name="nrbins" id="nrbins" size=1>
+			 	   		<option value="10">10</option>
+			 	   		<option value="20">20</option>
+			 	   		<option value="30">30</option>
+			 	   		<option value="40">40</option>
+			 	   		<option value="50">50</option>
+			 	   		<option value="60">60</option>
+			 	   		<option value="70">70</option>
+			 	   		<option value="80">80</option>
+			 	   		<option value="90">90</option>
+			 	   		<option value="100">100</option>
+			 	   	</select>
+			    	<input type="button" name="histcalc" id="histcalc" value="Histogram"></input>
+			    </div>
+			    <div class="tab-content" id="tabs3">
+			    	<div id="crossPlace">
+			    	</div></br>
+			    </div>
+			</div>
+		</div>
+		<div id="query" style="display:none">
+			<div id="title-wrapper">
+				<div id="title">CONSOLE</div>
+			</div>
+			<div id="close-wrapper">
+				<a href="javascript:void(0)" onclick="toggleDisplay('query')">X</a>
+			</div></br></br>
+			<div id="console" class="console"></div></br>
+            <a href="javascript:void(0)" style="float:left">VNIR <input type="radio" name="checkhstype" onclick="vnir()"></a>&nbsp;<a href="javascript:void(0)" style="float:left">IR<input type="radio" name="checkhstype" onclick="ir()" checked></a>&nbsp;<a href="javascript:void(0)">Save for GIS: <input type="checkbox" id="savecheck" /></a>
+		</div>
+		<!--LayerList>
+			<Layer>
+			</Layer>
+		</LayerList-->
+		<div id="mapStatus">
+			<div id="mapOutput"></div>
+		</div>
+		<div id="x3d" class="group" style="display:none">
+			<div id="title-wrapper">
+				<div id="title">X3D VISUALIZATION</div>
+			</div>
+			<div id="close-wrapper">
+				<a href="javascript:void(0)" onclick="toggleDisplay('x3d')">X</a>
+			</div></br></br>
+         <X3D  id="x3d_element" showLog='false' showStat='true'>
+            <button id="toggler" onclick="toggle(this);return false;">FULLSCREEN</button>
+            <scene>
+                <Background DEF='back' groundAngle='0.9 1.5 1.57' groundColor='0.1 0.1 0.1 0.15 0.15 0.15 0.2 0.2 0.2 0.3 0.3 0.3'
+                                        skyAngle='0.9 1.5 1.57' skyColor='0.2 0.2 0.2 0.3 0.3 0.3 0.4 0.4 0.4 0.5 0.5 0.5'>
+                </Background>
+
+				<Viewpoint id="front" position="500 0 3000"></Viewpoint>
+				<Viewpoint id="top" position="500 2300 800" orientation="1.0 0.0 0.0 -1.35"></Viewpoint>
+				<Viewpoint id="side" position="-2500.0 0 500" orientation="0 1 0 -1.5"></Viewpoint>
+				
+				<Transform id="BBscale" scale='1 1 1'>
+					<Shape render="false">
+						<Appearance>
+						  <Material emissiveColor ="1 1 0"></Material>
+						</Appearance>
+						<IndexedLineSet colorPerVertex="false" coordIndex="0 1 2 3 0 -1 4 5 6 7 4 -1 0 4 -1 1 5 -1 2 6 -1 3 7 -1">
+							<Coordinate id="cube" point=" 0 -500 0
+                                                 1000 -500 0
+                                                 1000  500 0
+                                                 0  500 0
+                                                 0 -500 1000
+                                                 1000 -500  1000
+                                                 1000  500  1000
+                                                 0  500  1000" ></Coordinate>
+						</IndexedLineSet>
+                   </Shape>		
+
+                    <Transform id="slider" scale="1 1 1">
+                   <Transform id="trans" scale="1 1 1">
+                        <Transform translation="500 0 0">
+                            <shape id="shape">
+                                <appearance>
+								<imageTexture id="texture1"></imageTexture>
+                                </appearance>
+                                <Rectangle2D solid='false' id="rectangle1" size="1000 1000" subdivision='1 1' ></Rectangle2D>
+                              </shape>      
+                        </Transform>	    
+                    </Transform>									
+				</Transform>
+                </Transform>
+            </scene>
+        </X3D>
+	     
+        <div id="input" class="values" style="display:none">
+		<table>
+			<tr>
+				<td>Service:</td>
+			</tr>
+			<tr>
+				<td><label for="url">URL:</label></td>
+				<td><input name="url" id="url" type="text" size="50" maxlength="255"></td>
+			</tr>
+			<tr>
+				<td><label for="coverid">CoverageID:</label></td>
+				<td><input name="coverid" id="coverid" type="text" size="50" maxlength="255"></td>
+			</tr>
+			<tr>
+				<td><label for="wmsversion">WMS Version:</label></td>
+				<td><select id="wmsversion" name="wmsversion"></select></td>
+			</tr>
+			<tr>
+				<td><label for="urlheight">Height-URL:</label></td>
+				<td><input name="url" id="urlheight" type="text" size="50" maxlength="255"></td>
+			</tr>
+			<tr>
+				<td><label for="heightcoverid">HeightCoverageID:</label></td>
+				<td><input name="coverid" id="heightcoverid" type="text" size="50" maxlength="255"></td>
+			</tr>
+			<tr>
+				<td><label for="wcsversion">WCS Version:</label></td>
+				<td><select id="wcsversion" name="wcsversion"></select></td>
+			</tr>
+			<tr>
+				<td>BoundingBox:</td>
+				<td>[longitude,latitude]</td>
+			</tr>
+            <tr>
+				<td><label for="BBlowercorner">Lower Corner:</label></td>
+				<td><input name="BBlowercorner" id="BBlowercorner" type="text" size="50" maxlength="50"></td>
+			</tr>
+			<tr>
+				<td><label for="BBuppercorner">Upper Corner:</label></td>
+				<td><input name="BBuppercorner" id="BBuppercorner" type="text" size="50" maxlength="50"></td>
+			</tr>			
+			<tr>
+				<td></td>
+				<!--td><input id="createSceneButton" type="button"  value="Create Scene"></td-->
+			</tr>
+		</table>
+		
+        </div>
+		<div id="details" class="values" style="display:none">
+		<table>
+            <tr>
+                <td>Details:</td>
+            </tr>
+            <tr>
+                <td><label for="detail_0">Image Size:</label></td>
+                <td><input name="detail_0" id="detail_0" type="text" size="50"></td>
+            </tr>
+            <tr>
+                <td><label for="detail_1">Heightmap Size:</label></td>
+				<td><input name="detail_1" id="detail_1" type="text" size="50"></td>
+            </tr>
+            <tr>
+                <td><label for="detail_2">Min Height:</label></td>
+                <td><input name="detail_2" id="detail_2" type="text" size="50"></td>
+            </tr>
+            <tr>
+                <td><label for="detail_3">Max Height:</label></td>
+                <td><input name="detail_3" id="detail_3" type="text" size="50"></td>
+            </tr>
+            <tr>
+                <td><label for="detail_4">Average Height:</label></td>
+                <td><input name="detail_4" id="detail_4" type="text" size="50"></td>
+            </tr>
+            <tr>
+                <td><label for="detail_5">Picked Height:</label></td>
+                <td><input name="detail_5" id="detail_5" type="text" size="50"></td>
+            </tr>
+         </table>
+		</div>
+		
+		<div id="download" class="values" style="display:none">
+            <label for="downloadButton">Download in high Resolution:</label>
+			<button id="downloadButton" type="submit" value="DownloadImage" name="Download Image">Download Image</button>
+		</div>
+		<div id="camerabuttons" class="values" style="display:none">
+				<label>Views:</label>
+				<button id="topViewButton">Top view</button>
+				<button id="frontViewButton">Front view</button>
+				<button id="sideViewButton">Side view</button>
+		</div>
+        <div id="sliderdiv" class="values" style="//display:none">
+            <label for="heightslider">Elevation exaggeration:</label>
+         <input id="heightslider" type="range" min="0.01" max="5.0" value="1.0" step="0.03" onchange="sliderChange(this.value)" />
+         <span id="range">1</span>
+         <span style="position:absolute;right:10px;bottom:5px;"><input id="createSceneButton" type="button"  value="Create Scene"></span>
+        </div>
+		</div>
+<!--        <div id="downloadify" style="display:none">
+            <form>
+            <input type="text" name="downloadify_filename" value="" id="filename" />
+            <textarea cols="60" rows="10" name="downloadify_data" id="data"></textarea>
+			<p id="downloadify_button">You must have Flash 10 installed to download this file.</p>
+            </form>
+        </div> -->
+
+</div>
+     <script type="text/javascript">
+         function sliderChange(newValue)
+         {
+             document.getElementById("range").innerHTML=newValue;
+             $('#slider').attr('scale',"1 " + newValue + " 1");
+             var trans = (250*newValue)-250;
+             $('#slider').attr('translation',"0 " + trans + " 0");
+         }
+     </script> 
+	</body>
+</html>

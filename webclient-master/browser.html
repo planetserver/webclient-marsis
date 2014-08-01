@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <style type="text/css">
+        html {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Verdana;
+            background:url(images/AboutBG.jpg) center center no-repeat;
+            background-color: #d7d7d7;
+        }
+        #browser {
+            width: 440px;
+            height: 350px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -250px; 
+            /* Half the width of the DIV tag which is 50 pixels */
+            margin-top: -200px;
+            padding: 30px 30px 30px 30px;
+            z-index: 2000;
+            text-align: center;
+        }
+        a.text {
+            font-size:25px;
+        }
+        a.href{
+            font-size:20px;
+            font-weight: bold;
+            color: #440d0d;
+            text-decoration: none;
+        }
+        a.href:hover{
+            text-decoration: underline;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="browser">
+      <a class="text">Your browser is unfortunately unsupported</a><br><br><br><br><br><br><br><br><br><br><br><a class="text">Please get:</a><br><br>
+      <a class="href" href="http://www.getfirefox.com" target="_new">Mozilla Firefox</a> <a class="text">|</a> <a class="href" href="http://www.google.com/chrome" target="_new">Google Chrome</a>
+    </div>
+  </body>
+</html>
