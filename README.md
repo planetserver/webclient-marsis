@@ -25,3 +25,7 @@ No changes in the files are needed as the server is created and populated using
 the scripts in https://github.com/planetserver/server-ingestion-marsis.
 
 If needed, proper db name and user can be set in index.php and showdata.php
+
+# Contributors
+
+Federico Cantini
